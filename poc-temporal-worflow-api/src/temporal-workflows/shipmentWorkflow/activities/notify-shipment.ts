@@ -1,8 +1,8 @@
 
 import { log } from '@temporalio/activity';
 import axios from 'axios';
-export async function notifyShipmentActivity(orderData: any) {
-  const res = await axios.post('http://localhost:3402/api/shipment/create-order',orderData);
+export async function notifyShipmentActivity(orderData: any,baseurl:string) {
+  const res = await axios.post(baseurl+'/order',orderData);
   log.info('data from notifyShipment', { res });
   return `${res}!`;
 }

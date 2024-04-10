@@ -1,11 +1,9 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import dotenv from "dotenv";
 import  cookieParser  from 'cookie-parser';
 import  cors  from 'cors';
 import logger from './utils/logger';
 import  routes  from './routes';
-import  path  from 'path';
-// configures dotenv to work in your application
 dotenv.config();
 
 const app = express();
@@ -15,7 +13,7 @@ app.use(cookieParser());
 app.use(cors());
 app.use('/', routes);
 
-const PORT = 3401;
+const PORT = process.env.PORT;
 
 /*
     Add to avoid cross origin access.

@@ -8,9 +8,9 @@ const { notifyShipmentActivity } = proxyActivities<typeof activities>({
 });
 
 
-export async function notifyShipment(orderData:any): Promise<any> {
+export async function notifyShipment(orderData:any,baseurl:any): Promise<any> {
   log.info('shipmentWorkflow initiated');
-  const data = await notifyShipmentActivity(orderData);
+  const data = await notifyShipmentActivity(orderData,baseurl);
   await sleep(100);
   return {"message":`The request is registred!`,data}
 }

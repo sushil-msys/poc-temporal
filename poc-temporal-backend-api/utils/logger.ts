@@ -1,5 +1,4 @@
-  "use strict";
-  import  tracer  from 'tracer';
+import  tracer  from 'tracer';
   const logger = tracer.colorConsole({
     format: [
       "{{timestamp}} <{{title}}> {{message}} (in {{file}}:{{line}})", //default format

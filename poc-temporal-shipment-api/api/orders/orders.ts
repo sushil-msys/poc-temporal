@@ -1,4 +1,3 @@
-"use strict";
 import {createOrder } from './controller'
 import logger from '../../utils/logger';
 

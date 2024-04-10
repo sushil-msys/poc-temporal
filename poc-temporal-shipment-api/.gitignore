@@ -7,6 +7,7 @@ dist
 # misc
 .DS_Store
 *.pem
+.env
 package-lock.json
 tsconfig.json
 # debug
