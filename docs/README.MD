@@ -5,20 +5,20 @@
 3. Edit the PATH for your account "setx PATH "C:\bin;%PATH%""
 4. Restart Command Prompt
 
-### Run poc-temporal-worflow-api server
+### Run poc-temporal-workflow-api server
  1. Open the new terminal
- 2. Go to poc-temporal-worflow-api
+ 2. Go to poc-temporal-workflow-api
  3. Run *npm install*
  4. Run *temporal server start-dev*
 
-### Run poc-temporal-worflow-api worker
+### Run poc-temporal-workflow-api worker
  1. Open the new terminal
- 2. Go to poc-temporal-worflow-api
+ 2. Go to poc-temporal-workflow-api
  3. Run *npm run start.watch* 
  
-### Run poc-temporal-worflow-api application
+### Run poc-temporal-workflow-api application
  1. Open the new terminal
- 2. Go to poc-temporal-worflow-api
+ 2. Go to poc-temporal-workflow-api
  3. Run *npm run start.server*
  >. application will run on PORT:3130
  
