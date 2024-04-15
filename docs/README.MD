@@ -46,7 +46,7 @@
 
 ### Raise a new request through Postman
 
-curl --location --request POST 'http://localhost:4000/backend-api/create-order' \
+curl --location --request POST 'http://localhost:4000/backend-api/order' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "type":"footwear",
