@@ -5,7 +5,7 @@ async function run() {
   // Step 1: Register Workflows and Activities with the Worker and connect to
   // the Temporal server.
   const worker = await Worker.create({
-    workflowsPath: require.resolve('./temporal-workflows/all-workflows'),
+    workflowsPath: require.resolve('./temporal-workflows/placeOrderWorkflow'),
     activities,
     taskQueue: 'order-taskQueue',
   });

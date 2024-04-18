@@ -2,6 +2,7 @@ import {createOrder } from './controller'
 import logger from '../../utils/logger';
 
 export const create_order = async (req:any, res:any) => {
+     //throw new Error('Vendor app execption!')
       return createOrder(req.body).then((result:any) => {
       if (result) {
         logger.info('router | api  | order | createOrder ');
