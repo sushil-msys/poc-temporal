@@ -4,6 +4,7 @@ import  cookieParser  from 'cookie-parser';
 import  cors  from 'cors';
 import logger from './utils/logger';
 import  routes  from './routes';
+import bodyParser from 'body-parser'
 dotenv.config();
 
 const app = express();
@@ -12,7 +13,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 app.use('/', routes);
-
+app.use(bodyParser.json({
+  limit: "50mb"
+}));
+app.use(bodyParser.urlencoded({
+  limit: "50mb",
+  extended: true,
+  parameterLimit: 50000
+}));
 const PORT = process.env.PORT;
 
 /*

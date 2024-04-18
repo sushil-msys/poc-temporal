@@ -8,7 +8,7 @@ export const create_order = async (req:any, res:any) => {
       if (results) {
         logger.info('api  | order | createOrder');
         const response =  axios.post(process.env.TEMPORAL_BASE_URL+'/order',results);
-        return res.status(200).json({"message":"The request is registred!",orderId:results.order_id});
+        return res.status(200).json({"message":"Order is processing!",orderId:results.order_id});
       }
   })
 };
