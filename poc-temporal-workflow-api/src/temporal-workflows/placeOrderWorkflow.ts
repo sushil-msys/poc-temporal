@@ -14,7 +14,7 @@ const { notifyShipmentActivity,notifyVendorActivity,rollbackNotifyShipmentActivi
   },
 });
 
-//placeOrder Workflow
+//placeOrder Workflow without transaction
 export  async function placeOrderWithoutRollback(orderData:any,baseurl:any):Promise<any> {
   log.info('placeOrderWorkflow initiated');
   const vendor =  await notifyVendorActivity(orderData,baseurl.VENDOR_API_URL);
@@ -35,8 +35,8 @@ export  async function placeOrder(orderData:any,baseurl:any):Promise<any> {
   try {
      await notifyShipmentActivity(orderData,baseurl.SHIPMENT_API_URL);
   } catch (error) {
-     recover(STAGE_VENDOR,orderData,baseurl.VENDOR_API_URL);
      recover(STAGE_SHIPMENT,orderData,baseurl.SHIPMENT_API_URL);
+     recover(STAGE_VENDOR,orderData,baseurl.VENDOR_API_URL);
   }
 }
 async function  recover(stage:string,orderData:any,baseUrl:string){
