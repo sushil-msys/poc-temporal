@@ -1,5 +1,5 @@
 import { Worker } from '@temporalio/worker';
-import * as activities from './temporal-workflows/activities/order';
+import * as activities from './temporal-workflows/activities';
 
 async function run() {
   // Step 1: Register Workflows and Activities with the Worker and connect to
