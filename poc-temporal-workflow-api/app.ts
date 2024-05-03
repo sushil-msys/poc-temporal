@@ -1,11 +1,10 @@
-import { Client } from '@temporalio/client';
-import { notifyShipment, notifyVendor } from './src/temporal-workflows/all-workflows';
-const client = new Client();
 import express from 'express';
 import dotenv from "dotenv";
 const cors = require('cors');
 import bodyParser from 'body-parser'
 import http from 'http';
+import  routes  from './routes';
+
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -19,25 +18,7 @@ app.use(bodyParser.urlencoded({
   parameterLimit: 50000
 }));
 app.use(cors());
-
-app.get('/workflow-api/order', async function (req:any, res:any): Promise<void> {
-  res.send("i am /workflow-api/order");
-})
-app.post('/workflow-api/order', async function (req:any, res:any): Promise<void> {
-  let orderData = req.body;
-  await client.workflow.execute(notifyShipment, {
-    taskQueue: 'order-taskQueue',
-    workflowId: 'notify-shipment-' + orderData.order_id, // TODO: remember to replace this with a meaningful business ID
-    args: [orderData,process.env.SHIPMENT_API_URL], // data need to pass args: [data object/string]
-  });
-  // Starts the `vendor-workflow` , don't wait for it to complete
-  await client.workflow.start(notifyVendor, {
-    taskQueue: 'order-taskQueue',
-    workflowId: 'notify-vendor-' + orderData.order_id, 
-    args: [orderData,process.env.VENDOR_API_URL], // data need to pass args: [data object/string]
-  });
-  res.json({"message":"Your request has been registerd","payload":orderData});
-});
+app.use('/', routes);
 
 const port = process.env.PORT;
 app.set('port', port);

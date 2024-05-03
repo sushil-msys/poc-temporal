@@ -7,14 +7,13 @@
 
 ### Run poc-temporal-workflow-api server
  1. Open the new terminal
- 2. Go to poc-temporal-workflow-api
- 3. Run *npm install*
- 4. Run *temporal server start-dev*
+ 2. Run *temporal server start-dev*
 
 ### Run poc-temporal-workflow-api worker
  1. Open the new terminal
  2. Go to poc-temporal-workflow-api
- 3. Run *npm run start.watch* 
+ 3. Run *npm install*
+ 4. Run *npm run start.watch* 
  
 ### Run poc-temporal-workflow-api application
  1. Open the new terminal
@@ -26,20 +25,23 @@
 ## Run the poc-temporal-backend-api
  1. Open the new terminal
  2. Go to poc-temporal-backend-api
- 3. Run *npm run start*
+ 3. Run *npm install*
+ 4. Run *npm run start*
  >. application will run on PORT:4000
 
 
 ## Run the poc-temporal-shipment-api
  1. Open the new terminal
  2. Go to poc-temporal-shipment-api
- 3. Run *npm run start*
+ 3. Run *npm install*
+ 4. Run *npm run start*
  >. application will run on PORT:3402
 
 ## Run the poc-temporal-vendor-api
  1. Open the new terminal
  2. Go to poc-temporal-vendor-api
- 3. Run *npm run start*
+ 3. Run *npm install*
+ 4. Run *npm run start*
  >. application will run on PORT:3401
 
 ### Open [temporal dashboard](http://localhost:8233/namespaces/default/workflows) 
@@ -57,7 +59,7 @@ curl --location --request POST 'http://localhost:4000/backend-api/order' \
     "address":"Baner Pune"
 }'
 
-# See the results on [temporal dashboard](http://localhost:8233/namespaces/default/workflows)
+## See the results on [temporal dashboard](http://localhost:8233/namespaces/default/workflows)
 
 
 
